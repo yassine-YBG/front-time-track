@@ -1,0 +1,42 @@
+<div class="dashboard">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Logo" />
+    </div>
+    <div class="nav-links">
+      <!-- My Liste with an icon -->
+      <a (click)="showComponent('liste-emploi')" class="nav-item">
+        <i class="fas fa-list"></i> My Liste
+      </a>
+      <!-- Add Emploi with an icon -->
+      <a (click)="showComponent('add')" class="nav-item">
+        <i class="fas fa-plus-circle"></i> Add Emploi du Temps
+      </a>
+      
+      <!-- Contact Us with an icon -->
+      <a href="#" class="nav-item">
+        <i class="fas fa-envelope"></i> Contact Us
+      </a>
+
+      <!-- Display username and logout button -->
+      <div class="user-info">
+        <span class="username">Hi, {{ loggedInUser}}</span>
+        <button (click)="logout()" class="logout-btn">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <ng-container *ngIf="currentComponent === 'liste-emploi'">
+      <app-liste-emploi></app-liste-emploi>
+    </ng-container>
+    <ng-container *ngIf="currentComponent === 'add'">
+      <app-add-emploi></app-add-emploi>
+    </ng-container>
+    <ng-container *ngIf="currentComponent === 'modify'">
+      <app-modify-emploi></app-modify-emploi>
+    </ng-container>
+  </main>
+</div>

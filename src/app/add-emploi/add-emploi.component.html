@@ -1,0 +1,67 @@
+<form [formGroup]="emploiForm" (ngSubmit)="onSubmit()" class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
+  <h2 class="text-2xl font-semibold text-gray-700 mb-4 text-center">Add Emploi du Temps</h2>
+
+  <div class="grid grid-cols-2 gap-4">
+    <!-- Title -->
+    <div class="flex flex-col">
+      <label for="titre" class="text-sm font-medium text-gray-600">Title</label>
+      <input id="titre" formControlName="titre" required
+             class="mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300 focus:border-blue-500">
+    </div>
+
+    <!-- Description -->
+    <div class="flex flex-col">
+      <label for="description" class="text-sm font-medium text-gray-600">Description</label>
+      <textarea id="description" formControlName="description"
+                class="mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300 focus:border-blue-500"></textarea>
+    </div>
+
+    <!-- Start Date -->
+    <div class="flex flex-col">
+      <label for="date_debut" class="text-sm font-medium text-gray-600">Start Date</label>
+      <input id="date_debut" formControlName="date_debut" type="datetime-local" required
+             class="mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300 focus:border-blue-500">
+    </div>
+
+    <!-- End Date -->
+    <div class="flex flex-col">
+      <label for="date_fin" class="text-sm font-medium text-gray-600">End Date</label>
+      <input id="date_fin" formControlName="date_fin" type="datetime-local" required
+             class="mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300 focus:border-blue-500">
+    </div>
+
+    <!-- Recurrence -->
+    <div class="flex items-center">
+      <input id="recurrent" formControlName="recurrent" type="checkbox" class="mr-2 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+      <label for="recurrent" class="text-sm font-medium text-gray-600">Is Recurrent?</label>
+    </div>
+
+    <!-- Location -->
+    <div class="flex flex-col">
+      <label for="lieu" class="text-sm font-medium text-gray-600">Location</label>
+      <input id="lieu" formControlName="lieu"
+             class="mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300 focus:border-blue-500">
+    </div>
+
+    <!-- Subject -->
+    <div class="flex flex-col">
+      <label for="matiere" class="text-sm font-medium text-gray-600">Subject</label>
+      <input id="matiere" formControlName="matiere"
+             class="mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300 focus:border-blue-500">
+    </div>
+
+    <!-- Teacher -->
+    <div class="flex flex-col">
+      <label for="enseignant" class="text-sm font-medium text-gray-600">Teacher</label>
+      <input id="enseignant" formControlName="enseignant" required
+             class="mt-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300 focus:border-blue-500">
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="mt-6">
+    <button type="submit" class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-500 transition duration-200">
+      Add Emploi du Temps
+    </button>
+  </div>
+</form>

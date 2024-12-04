@@ -1,0 +1,53 @@
+
+
+
+
+
+
+<table class="min-w-full table-auto bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+  <thead class="bg-gray-50">
+    <tr>
+      <th class="py-3 px-6 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Title</th>
+      <th class="py-3 px-6 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Description</th>
+      <th class="py-3 px-6 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Start Date</th>
+      <th class="py-3 px-6 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">End Date</th>
+      <th class="py-3 px-6 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">subject</th>
+      <th class="py-3 px-6 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Teacher</th>
+      <th class="py-3 px-6 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Location</th> 
+      <th class="py-3 px-6 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Recurrent</th>
+      <th class="py-3 px-6 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Action</th>
+    </tr>
+  </thead>
+  <tbody class="bg-white">
+    <tr *ngFor="let emploi of emplois" class="hover:bg-gray-100">
+      <td class="py-4 px-6 text-sm text-gray-800">{{ emploi.titre }}</td>
+      <td class="py-4 px-6 text-sm text-gray-600">{{ emploi.description }}</td>
+      <td class="py-4 px-6 text-sm text-gray-600">{{ emploi.date_debut | date: 'short' }}</td>
+      <td class="py-4 px-6 text-sm text-gray-600">{{ emploi.date_fin | date: 'short' }}</td>
+      <td class="py-4 px-6 text-sm text-gray-600">{{ emploi.matiere }}</td>
+
+      <td class="py-4 px-6 text-sm text-gray-600">{{ emploi.enseignant }}</td>
+      <td class="py-4 px-6">{{ emploi.lieu }}</td>
+      <td class="py-4 px-6 text-sm">
+        <span [ngClass]="{
+            'bg-green-500': emploi.recurrent,
+            'bg-red-500': !emploi.recurrent
+          }" class="inline-block w-3 h-3 rounded-full transition-all duration-300"></span>
+      </td>
+
+      <td class="py-4 px-6">
+        <button 
+  (click)="deleteEmploi(emploi.id!)" 
+  class="delete-btn">
+  Delete
+</button>
+        <button 
+  [routerLink]="['/modify-emploi', emploi.id]" 
+  class="modify-btn">
+  Modify
+</button>
+      </td>
+      
+    </tr>
+  </tbody>
+</table>
